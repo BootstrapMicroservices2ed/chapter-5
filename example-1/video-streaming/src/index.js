@@ -23,10 +23,10 @@ async function main() {
     const app = express();
 
     app.get("/video", async (req, res) => { // Route for streaming video.
-        
+
         const videoPath = "./videos/SampleVideo_1280x720_1mb.mp4";
         const stats = await fs.promises.stat(videoPath);
-    
+
         res.writeHead(200, {
             "Content-Length": stats.size,
             "Content-Type": "video/mp4",
@@ -36,7 +36,7 @@ async function main() {
     });
 
     app.listen(PORT, () => {
-        console.log(`Video streaming service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);        
+        console.log(`Video streaming service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);
     });
 }
 
