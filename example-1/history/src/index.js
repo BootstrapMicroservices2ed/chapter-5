@@ -1,4 +1,5 @@
 const express = require("express");
+const os = require("os");
 
 //
 // Throws an error if the PORT environment variable is missing.
@@ -17,7 +18,7 @@ const PORT = process.env.PORT;
 // Application entry point.
 //
 async function main() {
-
+    // Change this line to test active-load
     console.log("Hello world!");
 
     const app = express();
@@ -25,12 +26,12 @@ async function main() {
     // ... add route handlers here ...
 
     app.listen(PORT, () => {
-        console.log("Microservice online.")
+        console.log(`History service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);
     });
 }
 
 main()
     .catch(err => {
-        console.error("Microservice failed to start.");
+        console.error("History service failed to start.");
         console.error(err && err.stack || err);
     });

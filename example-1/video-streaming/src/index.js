@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require("fs");
+const os = require("os");
 
 //
 // Throws an error if the PORT environment variable is missing.
@@ -35,7 +36,7 @@ async function main() {
     });
 
     app.listen(PORT, () => {
-        console.log("Microservice online.");
+        console.log(`Video streaming service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);        
     });
 }
 
