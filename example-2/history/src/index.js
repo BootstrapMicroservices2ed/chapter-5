@@ -1,4 +1,5 @@
 const express = require("express");
+const os = require("os");
 const mongodb = require("mongodb");
 const bodyParser = require("body-parser");
 
@@ -73,7 +74,7 @@ async function main() {
     // Starts the HTTP server.
     //
     app.listen(PORT, () => {
-        console.log("Microservice online.")
+        console.log(`History service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);
     });
 }
 

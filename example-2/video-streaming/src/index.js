@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require("fs");
+const os = require("os");
 const http = require("http");
 
 if (!process.env.PORT) {
@@ -65,12 +66,12 @@ async function main() {
 
 
     app.listen(PORT, () => {
-        console.log("Microservice online.")
+        console.log(`Video streaming service online on ${os.hostname()} port ${PORT} [${os.platform()}]`);
     });
 }
 
 main()
     .catch(err => {
-        console.error("Microservice failed to start.");
+        console.error("Video streaming service failed to start.");
         console.error(err && err.stack || err);
     });
