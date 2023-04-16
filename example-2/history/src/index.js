@@ -80,6 +80,6 @@ async function main() {
 
 main()
     .catch(err => {
-        console.error("Microservice failed to start.");
+        console.error("History service failed to start.");
         console.error(err && err.stack || err);
     });
